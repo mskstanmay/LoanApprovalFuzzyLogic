@@ -28,7 +28,7 @@ async function calculateLoanApproval() {
     }
 
     try {
-        const response = await fetch('/api/calculate-loan', {
+        const response = await fetch('/calculate-loan', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ income, credit_score: creditScore, age, employment_status: employmentStatus, loan_amount: loanAmount })
