@@ -38,7 +38,7 @@ function calculateLoanApproval() {
     }
 
     // Make API call to backend
-    fetch('/api/calculate-loan', {
+    fetch('http://localhost:5000/calculate-loan', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
