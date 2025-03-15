@@ -64,6 +64,6 @@ function calculateLoanApproval() {
         document.getElementById('result').innerHTML = result;
     })
     .catch(error => {
-        document.getElementById('result').innerHTML = `Promise Error: ${error.message}`;
+        document.getElementById('result').innerHTML = `Promise Error: ${error.message} ${error.stack}`;
     });
 }
