@@ -53,13 +53,14 @@ function calculateLoanApproval() {
     })
     .then(response => response.json())
     .then(data => {
+        console.log("HEllo");
         if (data.error) {
             document.getElementById('result').innerHTML = `Data Error: ${data.error}`;
             return;
         }
         
          let result = `Approval Score: ${data.approval_score}<br>`;
-        // result += `Status: <span class="${data.is_approved ? 'text-green-600' : 'text-red-600'}">${data.status}</span>`;
+         result += `Status: <span class="${data.is_approved ? 'text-green-600' : 'text-red-600'}">${data.status}</span>`;
         
         document.getElementById('result').innerHTML = result;
     })
