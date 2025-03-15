@@ -13,7 +13,13 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Enable Cross-Origin Resource Sharing
+CORS(app, resources={
+    r"/*": {
+        "origins": ["http://localhost", "http://127.0.0.1", "null"],
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Accept"]
+    }
+})
 
 # **1. Define Input Variables**
 income = ctrl.Antecedent(np.arange(0, 2500001, 1000), 'income')  # ₹0 to ₹25,00,000
@@ -127,4 +133,4 @@ def calculate_loan():
         return jsonify({"error": f"Server error: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
