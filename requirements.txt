@@ -1,0 +1,5 @@
+numpy>=1.9.0
+scipy>=0.14.0
+scikit-fuzzy>=0.4.2
+flask>=2.0.0
+flask-cors>=3.0.0
