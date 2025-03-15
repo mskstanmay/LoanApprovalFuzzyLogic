@@ -54,15 +54,16 @@ function calculateLoanApproval() {
     .then(response => response.json())
     .then(data => {
         if (data.error) {
-            document.getElementById('result').innerHTML = `Error: ${data.error}`;
+            document.getElementById('result').innerHTML = `Data Error: ${data.error}`;
             return;
         }
         
         let result = `Approval Score: ${data.approval_score}<br>`;
         result += `Status: <span class="${data.is_approved ? 'text-green-600' : 'text-red-600'}">${data.status}</span>`;
+        
         document.getElementById('result').innerHTML = result;
     })
     .catch(error => {
-        document.getElementById('result').innerHTML = `Error: ${error.message}`;
+        document.getElementById('result').innerHTML = `Promise Error: ${error.message}`;
     });
 }
