@@ -3,6 +3,14 @@ import json
 from backend.main import loan_simulation, jsonify
 
 def handler(event, context):
+    # Handle health check for GET requests
+    if event['httpMethod'] == 'GET':
+        return {
+            'statusCode': 200,
+            'body': json.dumps({'message': 'Loan Approval Fuzzy Logic API is running!'})
+        }
+        
+    # For POST requests, continue with existing loan calculation logic
     try:
         # Parse the incoming JSON data
         body = json.loads(event['body'])
