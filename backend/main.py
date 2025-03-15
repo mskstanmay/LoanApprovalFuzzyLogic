@@ -13,13 +13,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={
-    r"/*": {
-        "origins": ["http://localhost", "http://127.0.0.1", "null"],
-        "methods": ["GET", "POST", "OPTIONS"],
-        "allow_headers": ["Content-Type", "Accept"]
-    }
-})
+CORS(app)  # Enable CORS for all domains
 
 # **1. Define Input Variables**
 income = ctrl.Antecedent(np.arange(0, 2500001, 1000), 'income')  # ₹0 to ₹25,00,000
@@ -84,7 +78,7 @@ loan_simulation = ctrl.ControlSystemSimulation(loan_ctrl)
 def home():
     return "Loan Approval Fuzzy Logic API is running!"
 
-@app.route('/calculate-loan', methods=['POST'])
+@app.route('/api/calculate-loan', methods=['POST'])
 def calculate_loan():
     try:
         data = request.json

@@ -1,5 +1,3 @@
-const API_BASE_URL = 'http://127.0.0.1:5000';  // Add this line at the top
-
 function calculateLoanApproval() {
     const income = parseFloat(document.getElementById('income').value);
     const creditScore = parseFloat(document.getElementById('credit_score').value);
@@ -40,11 +38,10 @@ function calculateLoanApproval() {
     }
 
     // Make API call to backend
-    fetch(`${API_BASE_URL}/calculate-loan`, {
+    fetch('/api/calculate-loan', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json'
         },
         body: JSON.stringify({
             income,
