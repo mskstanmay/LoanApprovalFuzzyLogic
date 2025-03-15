@@ -58,8 +58,8 @@ function calculateLoanApproval() {
             return;
         }
         
-        let result = `Approval Score: ${data.approval_score}<br>`;
-        result += `Status: <span class="${data.is_approved ? 'text-green-600' : 'text-red-600'}">${data.status}</span>`;
+         let result = `Approval Score: ${data.approval_score}<br>`;
+        // result += `Status: <span class="${data.is_approved ? 'text-green-600' : 'text-red-600'}">${data.status}</span>`;
         
         document.getElementById('result').innerHTML = result;
     })
