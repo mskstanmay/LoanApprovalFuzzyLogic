@@ -11,9 +11,13 @@ except ImportError:
 import numpy as np
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
-CORS(app)  # Enable Cross-Origin Resource Sharing
+CORS(app, resources={r"/*": {"origins": [
+    "https://fuzzylogicloanapprovalsystem.netlify.app/",
+    "http://localhost:3000"
+]}})
 
 # **1. Define Input Variables**
 income = ctrl.Antecedent(np.arange(0, 2500001, 1000), 'income')  # ₹0 to ₹25,00,000
@@ -127,4 +131,5 @@ def calculate_loan():
         return jsonify({"error": f"Server error: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 10000))
+    app.run(host='0.0.0.0', port=port)

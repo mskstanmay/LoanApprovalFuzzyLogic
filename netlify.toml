@@ -1,9 +1,6 @@
 [build]
   base = "/"
-  command = """
-    python -m pip install --upgrade pip &&
-    pip install -r requirements.txt
-  """
+  command = "# no build command"
   publish = "frontend"
   functions = "netlify/functions"
 
@@ -14,6 +11,6 @@
   directory = "netlify/functions"
 
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  from = "/*"
+  to = "/index.html"
   status = 200

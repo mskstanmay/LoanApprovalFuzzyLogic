@@ -1,0 +1,8 @@
+{
+  "name": "loan-approval-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Loan Approval System",
+  "scripts": {
+    "build": "echo 'No build required'"
+  }
+}
